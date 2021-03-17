@@ -1,0 +1,16 @@
+[credential]
+	helper = store
+[sendpack]
+	sideband = false
+[commit]
+	gpgsign = true
+[tag]
+	forcesignannotated = true
+[gpg]
+	program = gpg
+[winUpdater]
+	recentlySeenVersion = 2.30.1.windows.1
+[alias]
+	lg = log --graph --pretty=format:'%C(yellow)%h%Creset - %s %Cgreen(%an, %cr)%C(cyan)%d%Creset' --abbrev-commit
+	allfetch = fetch --all --prune
+	purge = !bash -c \"git branch -r | awk '{print \\$1}' | grep -E -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print \\$1}' | xargs -r git branch -D\"
